@@ -633,6 +633,9 @@ require('lazy').setup({
         severity_sort = true,
         float = { border = 'rounded', source = 'if_many' },
         underline = { severity = vim.diagnostic.severity.ERROR },
+        -- Completely remove the error signs on the left column.
+        signs = false,
+        --[[
         signs = vim.g.have_nerd_font and {
           text = {
             [vim.diagnostic.severity.ERROR] = '󰅚 ',
@@ -641,6 +644,7 @@ require('lazy').setup({
             [vim.diagnostic.severity.HINT] = '󰌶 ',
           },
         } or {},
+        --]]
         virtual_text = {
           source = 'if_many',
           spacing = 2,
