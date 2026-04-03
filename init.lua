@@ -654,7 +654,7 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         -- gopls = {},
-        -- pyright = {},
+        ruff = {},
         -- rust_analyzer = {},
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -748,6 +748,10 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        python = {
+          'ruff_format',
+          'ruff_organize_imports',
+        },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
