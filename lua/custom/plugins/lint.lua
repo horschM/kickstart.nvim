@@ -12,6 +12,16 @@ return {
       python = { 'mypy' },
     }
 
+    -- Global mypy config regardless of project setup
+    -- Append to existing default args rather than replacing them
+    vim.list_extend(lint.linters.mypy.args, {
+      -- optional for mypy but not covered in ruff
+      '--warn-unreachable',
+      '--ignore-missing-imports',
+      -- not defined symbols are already caught by ruff
+      '--disable-error-code=name-defined',
+    })
+
     -- To allow other plugins to add linters to require('lint').linters_by_ft,
     -- instead set linters_by_ft like this:
     -- lint.linters_by_ft = lint.linters_by_ft or {}
